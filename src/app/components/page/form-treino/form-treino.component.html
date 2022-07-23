@@ -1,0 +1,15 @@
+<h1>Envio de formulário básico!</h1>
+
+<form action="" #frm="ngForm" (ngSubmit)="submit()" [formGroup]="todo">
+    <input type="text" formControlName="name" id="" placeholder="Nome" ><br><br>
+    <input type="text" formControlName="user" id="" placeholder="Usuario" ><br>
+    <input type="submit" value="Enviar">
+
+</form>
+<br>
+<ul>
+    <li *ngFor="let allTodo of allTodos">
+        <h4> {{ allTodo.name }}  User: {{ allTodo.user }} </h4>
+        <a (click)="deleteTodo(allTodo._id)">Deletar</a>
+    </li>
+</ul>

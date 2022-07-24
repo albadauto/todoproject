@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Create element</h1>
+<form [formGroup]="frmTodo" #frmInital="ngForm" (ngSubmit)="submit()">
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>User</mat-label>
+            <input matInput formControlName="user">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button color="primary" type="submit">Create</button>
+    </div>
+</form>

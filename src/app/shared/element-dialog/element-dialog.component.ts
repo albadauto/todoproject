@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { MatTable } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/services/todo.service';
+import { Todo } from 'src/app/Todo';
 @Component({
   selector: 'app-element-dialog',
   templateUrl: './element-dialog.component.html',
@@ -11,11 +12,11 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class ElementDialogComponent implements OnInit {
 
-  element!: PeriodicElement
+  todo!: Todo
   frmTodo!: FormGroup
   table!: MatTable<any>
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: PeriodicElement,
+    @Inject(MAT_DIALOG_DATA) public data: Todo,
     public dialogRef: MatDialogRef<ElementDialogComponent>,
     private todoService: TodoService
   ) {}
@@ -32,7 +33,7 @@ export class ElementDialogComponent implements OnInit {
   }
 
   async submit(){
-    this.todoService.createNewTodo(this.frmTodo.value).subscribe();
+    return this.todoService.createNewTodo(this.frmTodo.value).subscribe();
   }
 
 }

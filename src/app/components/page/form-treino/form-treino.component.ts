@@ -8,14 +8,6 @@ import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-di
 import { Todo } from 'src/app/Todo';
 
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-
 
 @Component({
   selector: 'app-form-treino',
@@ -41,16 +33,7 @@ export class FormTreinoComponent implements OnInit {
     console.log(this.allTodos)
   }
 
-  public async submit(){
-    return this.todoService.createNewTodo(this.todo.value).subscribe(); // Create a submit
-  }
-
-  
-
-  public async deleteTodo(_id: string){
-    return this.todoService.deleteTodo(_id).subscribe(); // Delete a todo by ID
-  }
-
+ 
   openDialog(todo: Todo | null){
     const dialogRef = this.dialog.open(ElementDialogComponent, {
       width: '250px',
@@ -66,5 +49,12 @@ export class FormTreinoComponent implements OnInit {
         this.table.renderRows()
       }
     });
+  }
+
+  deleteOneTodo(id: string){
+    this.todoService.deleteTodo(id)
+    .subscribe(() => {
+      this.allTodos = this.allTodos.filter(p => p._id !== id)
+    })
   }
 }

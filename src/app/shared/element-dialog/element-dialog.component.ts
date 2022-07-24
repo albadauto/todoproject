@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { PeriodicElement } from 'src/app/components/page/form-treino/form-treino.component';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/services/todo.service';
@@ -18,7 +17,7 @@ export class ElementDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Todo,
     public dialogRef: MatDialogRef<ElementDialogComponent>,
-    private todoService: TodoService
+    private todoService: TodoService,
   ) {}
   
   ngOnInit(): void {
@@ -33,7 +32,9 @@ export class ElementDialogComponent implements OnInit {
   }
 
   async submit(){
-    return this.todoService.createNewTodo(this.frmTodo.value).subscribe();
+    return this.todoService.createNewTodo(this.frmTodo.value).subscribe(() => {
+      location.reload();
+    });
   }
 
 }

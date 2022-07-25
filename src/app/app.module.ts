@@ -15,12 +15,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ElementDialogComponent } from './shared/element-dialog/element-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { UserDashComponent } from './components/page/user-dash/user-dash.component';
+import { UserDialogComponent } from './shared/user-dialog/user-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     FormTreinoComponent,
     HeaderComponent,
-    ElementDialogComponent
+    ElementDialogComponent,
+    UserDashComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

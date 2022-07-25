@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/services/todo.service';
-import { Todo } from 'src/app/Todo';
+import { Todo } from 'src/app/interfaces/Todo';
 @Component({
   selector: 'app-element-dialog',
   templateUrl: './element-dialog.component.html',

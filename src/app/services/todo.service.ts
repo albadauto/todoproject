@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Todo } from '../Todo';
+import { Todo } from '../interfaces/Todo';
 
 @Injectable({
   providedIn: 'root'

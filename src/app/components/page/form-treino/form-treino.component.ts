@@ -5,7 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TodoService } from 'src/app/services/todo.service';
 import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-dialog.component';
-import { Todo } from 'src/app/Todo';
+import { Todo } from 'src/app/interfaces/Todo';
 
 
 
@@ -43,11 +43,8 @@ export class FormTreinoComponent implements OnInit {
       } : todo,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(result !== undefined){
-        this.allTodos.push(result)
-        this.table.renderRows()
-      }
+    dialogRef.afterClosed().subscribe(() => {
+      location.reload()
     });
   }
 

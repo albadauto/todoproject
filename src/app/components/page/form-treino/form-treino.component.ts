@@ -7,8 +7,6 @@ import { TodoService } from 'src/app/services/todo.service';
 import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-dialog.component';
 import { Todo } from 'src/app/interfaces/Todo';
 
-
-
 @Component({
   selector: 'app-form-treino',
   templateUrl: './form-treino.component.html',
@@ -30,7 +28,6 @@ export class FormTreinoComponent implements OnInit {
 
     })
     this.todoService.getAllTodo().subscribe((items) => this.allTodos = items); // Get All Todos
-    console.log(this.allTodos)
   }
 
  

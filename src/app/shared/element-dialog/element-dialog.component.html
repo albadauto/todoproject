@@ -1,18 +1,18 @@
 <h1 mat-dialog-title>Create element</h1>
-<form [formGroup]="frmTodo" #frmInital="ngForm" (ngSubmit)="submit()">
+<form [formGroup]="frmTodo" #frmInital="ngForm" (ngSubmit)="!isUpdated ? submit() : updateTodo()">
+    <input type="hidden" formControlName="_id" [(ngModel)]="data._id">
     <div mat-dialog-content>
         <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
+            <input matInput formControlName="name" [(ngModel)]="data.name">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>User</mat-label>
-            <input matInput formControlName="user">
+            <input matInput formControlName="user" [(ngModel)]="data.user">
         </mat-form-field>
     </div>
     <div mat-dialog-actions>
-        <button mat-button color="primary" type="submit">Create</button>
-
+        <button mat-button color="primary" type="submit"> {{ !isUpdated ? "Create" : "Update" }}</button>
         <a mat-button (click)="onNoClick()">Cancel</a>
 
     </div>

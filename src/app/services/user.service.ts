@@ -20,4 +20,12 @@ export class UserService {
   public getAllUsers(): Observable<IUser[]>{
     return this.http.get<IUser[]>(this.thisBaseUrl);
   }
+
+  public deleteOneUser(id: string): Observable<IUser>{
+    return this.http.delete<IUser>(`${this.thisBaseUrl}/${id}`);
+  }
+
+  public updateUser(id: string, user: any): Observable<IUser>{
+    return this.http.patch<IUser>(`${this.thisBaseUrl}/${id}`, user);
+  }
 }

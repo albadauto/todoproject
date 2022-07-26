@@ -14,6 +14,7 @@ export class ElementDialogComponent implements OnInit {
   todo!: Todo
   frmTodo!: FormGroup
   table!: MatTable<any>
+  isUpdated!: boolean
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Todo,
     public dialogRef: MatDialogRef<ElementDialogComponent>,
@@ -22,9 +23,15 @@ export class ElementDialogComponent implements OnInit {
   
   ngOnInit(): void {
     this.frmTodo = new FormGroup({
+      _id: new FormControl(''),
       name: new FormControl('', [Validators.required]),
       user: new FormControl('', [Validators.required])
     })
+    if(this.data.name !== ""){
+      this.isUpdated = true;
+    }else{
+      this.isUpdated = false;
+    }
   }
 
   onNoClick(): void {
@@ -35,6 +42,10 @@ export class ElementDialogComponent implements OnInit {
     return this.todoService.createNewTodo(this.frmTodo.value).subscribe(() => {
       location.reload();
     });
+  }
+
+  updateTodo(){
+    return this.todoService.updateTodo(this.data._id, this.data).subscribe(() => console.log("Atualizado"))
   }
 
 }

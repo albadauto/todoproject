@@ -1,31 +1,35 @@
 <h1 mat-dialog-title>Digite os dados do usuário </h1>
-<form (ngSubmit)="submit()" #frm="ngForm" [formGroup]="frmUser"> 
+<form (ngSubmit)="!edit ? submit() : updateNewUser()" #frm="ngForm" [formGroup]="frmUser"> 
+
+
+      <input type="hidden" formControlName="_id" [(ngModel)]="data._id">
+  
 <div mat-dialog-content>
   <p>Nome:</p>
   <mat-form-field appearance="fill">
     <mat-label>Ex: Armando Pinto</mat-label>
-    <input matInput formControlName="name">
+    <input matInput formControlName="name" [(ngModel)]="data.name">
   </mat-form-field>
 </div>
 <div mat-dialog-content>
     <p>Endereço:</p>
     <mat-form-field appearance="fill">
       <mat-label>Ex: Rua puta que paril nº 69</mat-label>
-      <input matInput formControlName="address">
+      <input matInput formControlName="address" [(ngModel)]="data.address">
     </mat-form-field>
   </div>
   <div mat-dialog-content>
     <p>CPF:</p>
     <mat-form-field appearance="fill">
       <mat-label>Ex: 000.000.000-00</mat-label>
-      <input matInput formControlName="cpf">
+      <input matInput formControlName="cpf" [(ngModel)]="data.cpf">
     </mat-form-field>
   </div>
   <div mat-dialog-content>
     <p>Telefone</p>
     <mat-form-field appearance="fill">
       <mat-label>Ex: Não precisa de exemplo</mat-label>
-      <input matInput formControlName="phone">
+      <input matInput formControlName="phone" [(ngModel)]="data.phone">
     </mat-form-field>
   </div>
 <div mat-dialog-actions>

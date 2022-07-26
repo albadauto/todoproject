@@ -51,4 +51,8 @@ export class FormTreinoComponent implements OnInit {
       this.allTodos = this.allTodos.filter(p => p._id !== id)
     })
   }
+
+  editTodo(todo: Todo){
+    this.openDialog(todo);
+  }
 }
